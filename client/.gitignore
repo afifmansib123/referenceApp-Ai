@@ -1,0 +1,49 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+**/node_modules/**
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-workspace
+.sublime-project
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Cache
+.eslintcache
+.turbo
+
+# Vercel
+.vercel
+
+# Runtime
+.env.production.local
