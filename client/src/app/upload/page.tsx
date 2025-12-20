@@ -79,8 +79,7 @@ export default function UploadPage() {
     try {
       setUploadStatus("uploading");
       const formData = new FormData();
-      formData.append("file", file);
-      formData.append("folder", "drawings");
+      formData.append("drawing", file);
 
       const result = await uploadDrawing(formData).unwrap();
 
@@ -89,7 +88,7 @@ export default function UploadPage() {
 
       // Redirect to quotation page
       setTimeout(() => {
-        router.push(`/quotation/${result.data.id}`);
+        router.push(`/quotation/${result.data.quoteId}`);
       }, 2000);
     } catch (error: any) {
       setUploadStatus("error");
