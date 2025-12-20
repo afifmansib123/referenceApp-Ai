@@ -52,10 +52,11 @@ export const drawingSchema = new mongoose.Schema({
 
 // Quote Schema - stores generated quotations
 export const quoteSchema = new mongoose.Schema({
-  _id: {
-  type: mongoose.Schema.Types.ObjectId,
-  auto: true
-},
+  quoteId: {
+    type: String,
+    required: true,
+    unique: true
+  },
   drawingId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Drawing',
