@@ -164,7 +164,7 @@ export class QuoteService {
   ): Promise<void> {
     try {
       const quote = new Quote({
-        _id: quoteId,
+        quoteId,
         drawingId,
         baseCost: costBreakdown.baseCost,
         materialCost: costBreakdown.material.totalCost,
@@ -242,7 +242,7 @@ export class QuoteService {
    */
   async getQuote(quoteId: string): Promise<any> {
     try {
-      return await Quote.findById(quoteId);
+      return await Quote.findOne({ quoteId });
     } catch (error) {
       console.error("Error fetching quote:", error);
       throw error;
@@ -257,10 +257,13 @@ export class QuoteService {
     status: "reviewed" | "approved" | "rejected" | "finalized"
   ): Promise<void> {
     try {
-      await Quote.findByIdAndUpdate(quoteId, {
-        status,
-        updatedAt: new Date(),
-      });
+      await Quote.findOneAndUpdate(
+        { quoteId },
+        {
+          status,
+          updatedAt: new Date(),
+        }
+      );
     } catch (error) {
       console.error("Error updating quote status:", error);
       throw error;
